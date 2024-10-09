@@ -113,7 +113,7 @@ To contribute code or run the project locally, you’ll need to set up your deve
 4. **Run the application**:  
    To run the application locally, use:
    ```bash
-   python main.py
+   python easy_pokedex.py
    ```
 
 5. **Run the tests**:  
