@@ -17,8 +17,8 @@ secondary_color = "#aba4f2"
 tertiary_color = "#8b95f2"
 background_color = "#d4b7ed"
 
-'''This function returns the background color for a given Pokémon type.'''
 def get_type_color(pokemon_type: str):
+    '''This function returns the background color for a given Pokémon type.'''
     type_colors = {
         "normal": "#E5E5D7",
         "fire": "#FBC6A4",
@@ -41,8 +41,8 @@ def get_type_color(pokemon_type: str):
     }
     return type_colors.get(pokemon_type.lower(), "#FFFFFF")  # Default to white if type not found
 
-'''This function creates the main window of the application.'''
 def create_window():
+    '''This function creates the main window of the application.'''
     window = tk.Tk()
     window.title("Easy Pokédex")
     window.geometry("1280x720")
@@ -91,8 +91,8 @@ def create_window():
     load_pokemon(return_random_pokemon_id(), frame, pokemon_info_label, image_label)
     window.mainloop()
 
-'''This function loads the Pokémon data and displays it in the given label.'''
 def load_pokemon(name_or_id: str, frame: tk.Frame, info_label: tk.Label, image_label: tk.Label):
+    '''This function loads the Pokémon data, the Pókemon image, and displays it in the given label.'''
     try:
         # Load Pokémon data from JSON file
         with open('pokemon_data.json', 'r') as file:
@@ -133,8 +133,8 @@ def load_pokemon(name_or_id: str, frame: tk.Frame, info_label: tk.Label, image_l
         frame.pack_forget()
         messagebox.showerror("Error", f"Could not load Pokémon: {e}")
 
-'''This function returns a random Pokémon ID.'''
 def return_random_pokemon_id():
+    '''This function returns a random Pokémon ID.'''
     return str(random.randint(0, 1025))
 
 def main():
