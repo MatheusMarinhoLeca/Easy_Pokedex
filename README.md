@@ -48,3 +48,4 @@ Contributions are welcome! Please check the [CONTRIBUTING.md](CONTRIBUTING.md) f
 ## License
 This project is copyright Matheus Marinho de Morais Leça. It is licensed under the MIT license. See the following file for the complete license:
 [MIT License](LICENSE)
+Pokémon and Pokémon character names are trademarks of Nintendo.
