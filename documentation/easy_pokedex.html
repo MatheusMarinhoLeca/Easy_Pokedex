@@ -30,11 +30,39 @@ See&nbsp;LICENSE&nbsp;for&nbsp;more&nbsp;information.</span></p>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-create_window"><strong>create_window</strong></a>()</dt><dd><span class="code">This&nbsp;function&nbsp;creates&nbsp;the&nbsp;main&nbsp;window&nbsp;of&nbsp;the&nbsp;application.</span></dd></dl>
- <dl><dt><a name="-get_type_color"><strong>get_type_color</strong></a>(pokemon_type: str)</dt><dd><span class="code">This&nbsp;function&nbsp;returns&nbsp;the&nbsp;background&nbsp;color&nbsp;for&nbsp;a&nbsp;given&nbsp;Pokémon&nbsp;type.</span></dd></dl>
- <dl><dt><a name="-load_pokemon"><strong>load_pokemon</strong></a>(name_or_id: str, frame: tkinter.Frame, info_label: tkinter.Label, image_label: tkinter.Label)</dt><dd><span class="code">This&nbsp;function&nbsp;loads&nbsp;the&nbsp;Pokémon&nbsp;data,&nbsp;the&nbsp;Pókemon&nbsp;image,&nbsp;and&nbsp;displays&nbsp;it&nbsp;in&nbsp;the&nbsp;given&nbsp;label.</span></dd></dl>
- <dl><dt><a name="-main"><strong>main</strong></a>()</dt></dl>
- <dl><dt><a name="-return_random_pokemon_id"><strong>return_random_pokemon_id</strong></a>()</dt><dd><span class="code">This&nbsp;function&nbsp;returns&nbsp;a&nbsp;random&nbsp;Pokémon&nbsp;ID.</span></dd></dl>
+<td class="singlecolumn"><dl><dt><a name="-create_window"><strong>create_window</strong></a>()</dt><dd><span class="code">Creates&nbsp;and&nbsp;configures&nbsp;the&nbsp;main&nbsp;window&nbsp;of&nbsp;the&nbsp;Easy&nbsp;Pokédex<br>
+&nbsp;<br>
+This&nbsp;includes&nbsp;setting&nbsp;up&nbsp;the&nbsp;welcome&nbsp;frame,&nbsp;search&nbsp;bar,&nbsp;buttons&nbsp;for&nbsp;searching&nbsp;and&nbsp;loading<br>
+random&nbsp;Pokémon,&nbsp;and&nbsp;main&nbsp;display&nbsp;frame&nbsp;for&nbsp;showing&nbsp;Pokémon&nbsp;images&nbsp;and&nbsp;information.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-get_type_color"><strong>get_type_color</strong></a>(pokemon_type: str)</dt><dd><span class="code">Returns&nbsp;the&nbsp;background&nbsp;color&nbsp;associated&nbsp;with&nbsp;a&nbsp;given&nbsp;Pokémon&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pokemon_type&nbsp;(str):&nbsp;The&nbsp;type&nbsp;of&nbsp;Pokémon&nbsp;(e.g.,&nbsp;'fire',&nbsp;'water').<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;corresponding&nbsp;color&nbsp;code&nbsp;in&nbsp;hexadecimal&nbsp;format&nbsp;for&nbsp;the&nbsp;given&nbsp;Pokémon&nbsp;type.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;type&nbsp;is&nbsp;not&nbsp;found,&nbsp;it&nbsp;returns&nbsp;'#FFFFFF'&nbsp;(white)&nbsp;by&nbsp;default.</span></dd></dl>
+ <dl><dt><a name="-load_pokemon"><strong>load_pokemon</strong></a>(name_or_id: str, frame: tkinter.Frame, info_label: tkinter.Label, image_label: tkinter.Label)</dt><dd><span class="code">Loads&nbsp;the&nbsp;Pokémon&nbsp;data,&nbsp;including&nbsp;its&nbsp;image&nbsp;and&nbsp;stats,&nbsp;and&nbsp;displays&nbsp;it&nbsp;in&nbsp;the&nbsp;application.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name_or_id&nbsp;(str):&nbsp;The&nbsp;name&nbsp;or&nbsp;ID&nbsp;of&nbsp;the&nbsp;Pokémon&nbsp;to&nbsp;load.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame&nbsp;(tk.Frame):&nbsp;The&nbsp;frame&nbsp;in&nbsp;which&nbsp;the&nbsp;Pokémon&nbsp;data&nbsp;will&nbsp;be&nbsp;displayed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;info_label&nbsp;(tk.Label):&nbsp;The&nbsp;label&nbsp;where&nbsp;Pokémon&nbsp;stats&nbsp;and&nbsp;abilities&nbsp;will&nbsp;be&nbsp;shown.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image_label&nbsp;(tk.Label):&nbsp;The&nbsp;label&nbsp;where&nbsp;the&nbsp;Pokémon&nbsp;image&nbsp;will&nbsp;be&nbsp;displayed.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">The&nbsp;main&nbsp;function&nbsp;that&nbsp;starts&nbsp;the&nbsp;Easy&nbsp;Pokédex&nbsp;application&nbsp;by&nbsp;calling&nbsp;`<a href="#-create_window">create_window</a>()`.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-return_random_pokemon_id"><strong>return_random_pokemon_id</strong></a>()</dt><dd><span class="code">Returns&nbsp;a&nbsp;random&nbsp;Pokémon&nbsp;ID&nbsp;for&nbsp;selecting&nbsp;a&nbsp;random&nbsp;Pokémon&nbsp;from&nbsp;the&nbsp;available&nbsp;dataset.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;A&nbsp;string&nbsp;representing&nbsp;a&nbsp;random&nbsp;Pokémon&nbsp;ID&nbsp;between&nbsp;0&nbsp;and&nbsp;1025.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">

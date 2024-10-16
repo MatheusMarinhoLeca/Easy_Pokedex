@@ -18,7 +18,16 @@ tertiary_color = "#8b95f2"
 background_color = "#d4b7ed"
 
 def get_type_color(pokemon_type: str):
-    '''This function returns the background color for a given Pokémon type.'''
+    """
+    Returns the background color associated with a given Pokémon type.
+
+    Args:
+        pokemon_type (str): The type of Pokémon (e.g., 'fire', 'water').
+
+    Returns:
+        str: The corresponding color code in hexadecimal format for the given Pokémon type.
+        If the type is not found, it returns '#FFFFFF' (white) by default.
+    """
     type_colors = {
         "normal": "#E5E5D7",
         "fire": "#FBC6A4",
@@ -42,7 +51,15 @@ def get_type_color(pokemon_type: str):
     return type_colors.get(pokemon_type.lower(), "#FFFFFF")  # Default to white if type not found
 
 def create_window():
-    '''This function creates the main window of the application.'''
+    """
+    Creates and configures the main window of the Easy Pokédex application.
+    
+    This includes setting up the welcome frame, search bar, buttons for searching and loading
+    random Pokémon, and main display frame for showing Pokémon images and information.
+
+    Returns:
+        None
+    """
     window = tk.Tk()
     window.title("Easy Pokédex")
     window.geometry("1280x720")
@@ -92,7 +109,18 @@ def create_window():
     window.mainloop()
 
 def load_pokemon(name_or_id: str, frame: tk.Frame, info_label: tk.Label, image_label: tk.Label):
-    '''This function loads the Pokémon data, the Pókemon image, and displays it in the given label.'''
+    """
+    Loads the Pokémon data, including its image and stats, and displays it in the application.
+
+    Args:
+        name_or_id (str): The name or ID of the Pokémon to load.
+        frame (tk.Frame): The frame in which the Pokémon data will be displayed.
+        info_label (tk.Label): The label where Pokémon stats and abilities will be shown.
+        image_label (tk.Label): The label where the Pokémon image will be displayed.
+
+    Returns:
+        None
+    """
     try:
         # Load Pokémon data from JSON file
         with open('pokemon_data.json', 'r') as file:
@@ -134,10 +162,21 @@ def load_pokemon(name_or_id: str, frame: tk.Frame, info_label: tk.Label, image_l
         messagebox.showerror("Error", f"Could not load Pokémon: {e}")
 
 def return_random_pokemon_id():
-    '''This function returns a random Pokémon ID.'''
+    """
+    Returns a random Pokémon ID for selecting a random Pokémon from the available dataset.
+
+    Returns:
+        str: A string representing a random Pokémon ID between 0 and 1025.
+    """
     return str(random.randint(0, 1025))
 
 def main():
+    """
+    The main function that starts the Easy Pokédex application by calling `create_window()`.
+
+    Returns:
+        None
+    """
     create_window()
 
 main()
