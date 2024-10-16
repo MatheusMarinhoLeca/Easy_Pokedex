@@ -2,7 +2,20 @@
 Easy Pokédex is a convenient tool that allows you to access detailed information about Pokémon without having to capture them.
 
 ## Features
+- **Search Pokémon by Name or ID**: Easily search for any Pokémon by entering its name or ID in the search bar.
+- **Random Pokémon Generator**: Generate and display a random Pokémon with just one click.
+- **Detailed Pokémon Information**: View comprehensive details about each Pokémon, including:
+  - Abilities
+  - Types
+  - Height and Weight
+  - Base Experience
+  - Stats such as HP, Attack, Defense, and Speed
+- **Dynamic Type Coloring**: The background color changes dynamically based on the primary type of the Pokémon.
+- **Pokémon Images**: Display high-quality Pokémon images in the application window.
 
+#### In Development
+
+- **Pokémon Sidebar**: A sidebar feature will allow users to browse a complete list of all Pokémon, making it easier to explore the available options.
 
 ## Configuration
 #### Prerequisites
