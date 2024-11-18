@@ -105,12 +105,83 @@ def create_window():
     pokemon_info_label = tk.Label(content_frame, text="", font=("Arial", 18), bg=tertiary_color, fg=primary_color)
     pokemon_info_label.pack(pady=10)
 
-    load_pokemon(return_random_pokemon_id(), frame, pokemon_info_label, image_label)
     window.mainloop()
+
+def load_pokemon_data(name_or_id: str):
+    """
+    Loads the Pokémon data from the JSON file based on the name or ID.
+
+    Args:
+        name_or_id (str): The name or ID of the Pokémon.
+
+    Returns:
+        dict: A dictionary containing the Pokémon's data.
+    
+    Raises:
+        ValueError: If the Pokémon is not found.
+    """
+    try:
+        # Load Pokémon data from JSON file
+        with open('data/pokemon_data.json', 'r') as file:
+            pokemon_data = json.load(file)
+
+        # Find the Pokémon by name or ID
+        for poke in pokemon_data:
+            if poke['name'].lower() == name_or_id.lower() or str(poke['id']) == name_or_id:
+                return poke
+
+        raise ValueError("Pokémon not found")
+    except Exception as e:
+        raise Exception(f"Error loading Pokémon data: {e}")
+
+
+def update_pokemon_info(pokemon: dict, frame: tk.Frame, info_label: tk.Label, image_label: tk.Label):
+    """
+    Updates the GUI with the Pokémon's image and stats.
+
+    Args:
+        pokemon (dict): The Pokémon's data.
+        frame (tk.Frame): The frame in which the Pokémon data will be displayed.
+        info_label (tk.Label): The label where Pokémon stats and abilities will be shown.
+        image_label (tk.Label): The label where the Pokémon image will be displayed.
+
+    Returns:
+        None
+    """
+    try:
+        # Load and resize the Pokémon image
+        image = Image.open(pokemon['image_path'])
+        image = image.resize((200, 200), Image.LANCZOS)
+        img = ImageTk.PhotoImage(image)
+
+        # Set the background color based on the Pokémon type
+        pokemon_type = pokemon['type'][0].lower()
+        image_label.config(image=img, bg=get_type_color(pokemon_type))
+        image_label.image = img
+
+        # Pokémon information
+        abilities = ', '.join([str(ability[0]) for ability in pokemon['abilities']])
+        pokemon_info = (
+            f"{pokemon['id']} - {pokemon['name'].capitalize()}\n"
+            f"Abilities: {abilities}\n"
+            f"Types: {', '.join(pokemon['type'])}\n"
+            f"Height: {pokemon['height']}m Weight: {pokemon['weight']}kg\n"
+            f"Base Experience: {pokemon['base_experience']}xp\n"
+            f"HP: {pokemon['hp']} Attack: {pokemon['attack']} Defense: {pokemon['defense']} Speed: {pokemon['speed']}"
+        )
+        info_label.config(text=pokemon_info)
+
+        # Show frame and labels
+        frame.pack(pady=30)
+    except Exception as e:
+        # Hide frame if loading fails
+        frame.pack_forget()
+        messagebox.showerror("Error", f"Could not display Pokémon data: {e}")
+
 
 def load_pokemon(name_or_id: str, frame: tk.Frame, info_label: tk.Label, image_label: tk.Label):
     """
-    Loads the Pokémon data, including its image and stats, and displays it in the application.
+    Function that calls the necessary functions to load and display the Pokémon data.
 
     Args:
         name_or_id (str): The name or ID of the Pokémon to load.
@@ -122,43 +193,12 @@ def load_pokemon(name_or_id: str, frame: tk.Frame, info_label: tk.Label, image_l
         None
     """
     try:
-        # Load Pokémon data from JSON file
-        with open('pokemon_data.json', 'r') as file:
-            pokemon_data = json.load(file)
+        # Load the Pokémon data
+        pokemon = load_pokemon_data(name_or_id)
 
-        pokemon = None
-        for poke in pokemon_data:
-            if poke['name'].lower() == name_or_id.lower() or str(poke['id']) == name_or_id:
-                pokemon = poke
-                break
-
-        if not pokemon:
-            raise ValueError("Pokémon not found")
-        
-        # Loads and resizes the Pokémon image
-        image = Image.open(pokemon['image_path'])
-        image = image.resize((200, 200), Image.LANCZOS)
-
-        # Convert the image to a PhotoImage for Tkinter
-        img = ImageTk.PhotoImage(image)
-
-        # Set the background color based on the Pokémon type
-        pokemon_type = pokemon['type'][0].lower()
-        image_label.config(image=img, bg=get_type_color(pokemon_type))
-
-        image_label.image = img
-
-        # Pokémon information
-        abilities = ', '.join([str(ability[0]) for ability in pokemon['abilities']])
-        pokemon_info = f"{pokemon['id']} - {pokemon['name'].capitalize()}\nAbilities: {abilities}\nTypes: {', '.join(pokemon['type'])}\nHeight: {pokemon['height']}m Weight: {pokemon['weight']}kg Base Experience: {pokemon['base_experience']}xp\nHP: {pokemon['hp']} Attack: {pokemon['attack']} Defense: {pokemon['defense']} Speed: {pokemon['speed']}"
-        info_label.config(text=pokemon_info)
-
-        # Show frame and labels when data is successfully loaded
-        frame.pack(pady=30)
-
+        # Update the GUI with the Pokémon data
+        update_pokemon_info(pokemon, frame, info_label, image_label)
     except Exception as e:
-        # Hide frame if loading fails
-        frame.pack_forget()
         messagebox.showerror("Error", f"Could not load Pokémon: {e}")
 
 def return_random_pokemon_id():
