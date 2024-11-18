@@ -8,6 +8,7 @@
 <table class="heading">
 <tr class="heading-text decor">
 <td class="title">&nbsp;<br><strong class="title">easy_pokedex</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/matheusmarinho/Desktop/Ucalgary%20Research/UCalgary/Special%20Topics/Easy_Pokedex/easy_pokedex.py">/Users/matheusmarinho/Desktop/Ucalgary Research/UCalgary/Special Topics/Easy_Pokedex/easy_pokedex.py</a></td></tr></table>
     <p><span class="code">Copyright&nbsp;Matheus&nbsp;Marinho&nbsp;de&nbsp;Morais&nbsp;Leça,&nbsp;2024<br>
 Licensed&nbsp;under&nbsp;MIT&nbsp;license.<br>
 See&nbsp;LICENSE&nbsp;for&nbsp;more&nbsp;information.</span></p>
@@ -29,7 +30,7 @@ See&nbsp;LICENSE&nbsp;for&nbsp;more&nbsp;information.</span></p>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-create_window"><strong>create_window</strong></a>()</dt><dd><span class="code">Creates&nbsp;and&nbsp;configures&nbsp;the&nbsp;main&nbsp;window&nbsp;of&nbsp;the&nbsp;Easy&nbsp;Pokédex<br>
+<td class="singlecolumn"><dl><dt><a name="-create_window"><strong>create_window</strong></a>()</dt><dd><span class="code">Creates&nbsp;and&nbsp;configures&nbsp;the&nbsp;main&nbsp;window&nbsp;of&nbsp;the&nbsp;Easy&nbsp;Pokédex&nbsp;application.<br>
 &nbsp;<br>
 This&nbsp;includes&nbsp;setting&nbsp;up&nbsp;the&nbsp;welcome&nbsp;frame,&nbsp;search&nbsp;bar,&nbsp;buttons&nbsp;for&nbsp;searching&nbsp;and&nbsp;loading<br>
 random&nbsp;Pokémon,&nbsp;and&nbsp;main&nbsp;display&nbsp;frame&nbsp;for&nbsp;showing&nbsp;Pokémon&nbsp;images&nbsp;and&nbsp;information.<br>
@@ -44,7 +45,7 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;corresponding&nbsp;color&nbsp;code&nbsp;in&nbsp;hexadecimal&nbsp;format&nbsp;for&nbsp;the&nbsp;given&nbsp;Pokémon&nbsp;type.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;type&nbsp;is&nbsp;not&nbsp;found,&nbsp;it&nbsp;returns&nbsp;'#FFFFFF'&nbsp;(white)&nbsp;by&nbsp;default.</span></dd></dl>
- <dl><dt><a name="-load_pokemon"><strong>load_pokemon</strong></a>(name_or_id: str, frame: tkinter.Frame, info_label: tkinter.Label, image_label: tkinter.Label)</dt><dd><span class="code">Loads&nbsp;the&nbsp;Pokémon&nbsp;data,&nbsp;including&nbsp;its&nbsp;image&nbsp;and&nbsp;stats,&nbsp;and&nbsp;displays&nbsp;it&nbsp;in&nbsp;the&nbsp;application.<br>
+ <dl><dt><a name="-load_pokemon"><strong>load_pokemon</strong></a>(name_or_id: str, frame: tkinter.Frame, info_label: tkinter.Label, image_label: tkinter.Label)</dt><dd><span class="code">Function&nbsp;that&nbsp;calls&nbsp;the&nbsp;necessary&nbsp;functions&nbsp;to&nbsp;load&nbsp;and&nbsp;display&nbsp;the&nbsp;Pokémon&nbsp;data.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;name_or_id&nbsp;(str):&nbsp;The&nbsp;name&nbsp;or&nbsp;ID&nbsp;of&nbsp;the&nbsp;Pokémon&nbsp;to&nbsp;load.<br>
@@ -54,6 +55,16 @@ Args:<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-load_pokemon_data"><strong>load_pokemon_data</strong></a>(name_or_id: str)</dt><dd><span class="code">Loads&nbsp;the&nbsp;Pokémon&nbsp;data&nbsp;from&nbsp;the&nbsp;JSON&nbsp;file&nbsp;based&nbsp;on&nbsp;the&nbsp;name&nbsp;or&nbsp;ID.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name_or_id&nbsp;(str):&nbsp;The&nbsp;name&nbsp;or&nbsp;ID&nbsp;of&nbsp;the&nbsp;Pokémon.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;the&nbsp;Pokémon's&nbsp;data.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ValueError:&nbsp;If&nbsp;the&nbsp;Pokémon&nbsp;is&nbsp;not&nbsp;found.</span></dd></dl>
  <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">The&nbsp;main&nbsp;function&nbsp;that&nbsp;starts&nbsp;the&nbsp;Easy&nbsp;Pokédex&nbsp;application&nbsp;by&nbsp;calling&nbsp;`<a href="#-create_window">create_window</a>()`.<br>
 &nbsp;<br>
 Returns:<br>
@@ -62,6 +73,16 @@ Returns:<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;A&nbsp;string&nbsp;representing&nbsp;a&nbsp;random&nbsp;Pokémon&nbsp;ID&nbsp;between&nbsp;0&nbsp;and&nbsp;1025.</span></dd></dl>
+ <dl><dt><a name="-update_pokemon_info"><strong>update_pokemon_info</strong></a>(pokemon: dict, frame: tkinter.Frame, info_label: tkinter.Label, image_label: tkinter.Label)</dt><dd><span class="code">Updates&nbsp;the&nbsp;GUI&nbsp;with&nbsp;the&nbsp;Pokémon's&nbsp;image&nbsp;and&nbsp;stats.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pokemon&nbsp;(dict):&nbsp;The&nbsp;Pokémon's&nbsp;data.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame&nbsp;(tk.Frame):&nbsp;The&nbsp;frame&nbsp;in&nbsp;which&nbsp;the&nbsp;Pokémon&nbsp;data&nbsp;will&nbsp;be&nbsp;displayed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;info_label&nbsp;(tk.Label):&nbsp;The&nbsp;label&nbsp;where&nbsp;Pokémon&nbsp;stats&nbsp;and&nbsp;abilities&nbsp;will&nbsp;be&nbsp;shown.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image_label&nbsp;(tk.Label):&nbsp;The&nbsp;label&nbsp;where&nbsp;the&nbsp;Pokémon&nbsp;image&nbsp;will&nbsp;be&nbsp;displayed.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
