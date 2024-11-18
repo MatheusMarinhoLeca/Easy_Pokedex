@@ -82,8 +82,18 @@ def create_window():
     sidebar_label = tk.Label(sidebar, text="Pokémon List", font=("Arial", 16), bg=secondary_color, fg=primary_color)
     sidebar_label.pack(pady=10)
 
-    listbox = tk.Listbox(sidebar, font=("Arial", 14), bg=primary_color, fg=secondary_color)
-    listbox.pack(fill="both", expand=True, padx=10, pady=10)
+    # Scrollbar and Listbox
+    listbox_frame = tk.Frame(sidebar, bg=secondary_color)
+    listbox_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+    scrollbar = tk.Scrollbar(listbox_frame)
+    scrollbar.pack(side="right", fill="y")
+
+    listbox = tk.Listbox(listbox_frame, font=("Arial", 14), bg=primary_color, fg=secondary_color, yscrollcommand=scrollbar.set)
+    listbox.pack(side="left", fill="both", expand=True)
+
+    # Configure scrollbar to work with the listbox
+    scrollbar.config(command=listbox.yview)
 
     for pokemon in load_all_pokemon_data():
         listbox.insert(tk.END, pokemon['name'].capitalize())
@@ -134,6 +144,12 @@ def create_window():
 def load_all_pokemon_data() -> list[dict[str, Any]]:
     """
     Loads all Pokémon data from the JSON file.
+
+    Returns:
+        list[dict[str, Any]]: A list of dictionaries containing the Pokémon data.
+
+    Note:
+        The data is cached to avoid reading the file multiple times.
     """
     with open('data/pokemon_data.json', 'r') as file:
         return json.load(file)
