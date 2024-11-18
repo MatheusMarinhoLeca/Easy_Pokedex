@@ -218,3 +218,6 @@ def main():
         None
     """
     create_window()
+
+if __name__ == "__main__":
+    main()
