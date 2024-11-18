@@ -40,7 +40,7 @@ Easy Pokédex is a convenient tool that allows you to access detailed informatio
 3. **Install dependencies**:  
    Install the required dependencies using `pip`:
    ```bash
-   pip install -r requirements.txt
+   pip install -e '.[dev]'
    ```
 
 4. **Run the application**:  
