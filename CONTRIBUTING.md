@@ -100,26 +100,27 @@ To contribute code or run the project locally, you’ll need to set up your deve
 2. **Create a virtual environment**:  
    In the project’s root directory, create and activate a virtual environment:
    ```bash
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate   # On Windows: venv\Scripts\activate
    ```
 
 3. **Install dependencies**:  
    Install the required dependencies using `pip`:
    ```bash
-   pip install -r requirements.txt
+   pip install -e '.[dev]'
    ```
 
 4. **Run the application**:  
    To run the application locally, use:
    ```bash
-   python easy_pokedex.py
+   python3 easy_pokedex.py
    ```
 
 5. **Run the tests**:  
    To run the test suite and ensure everything is functioning:
    ```bash
-   pytest
+   cd tests
+   pytest -s test_easyPokedex.py -v
    ```
 
 6. **Deactivate the virtual environment**:  
