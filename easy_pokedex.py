@@ -10,6 +10,8 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import random
 import json
+from typing import Any
+from functools import cache
 
 # Defining color palette
 primary_color = "white"
@@ -72,6 +74,27 @@ def create_window():
     except Exception as e:
         print(f"Could not load icon: {e}")
 
+
+    # Sidebar for Pokémon list
+    sidebar = tk.Frame(window, width=300, bg=secondary_color)
+    sidebar.pack(side="left", fill="y")
+
+    sidebar_label = tk.Label(sidebar, text="Pokémon List", font=("Arial", 16), bg=secondary_color, fg=primary_color)
+    sidebar_label.pack(pady=10)
+
+    listbox = tk.Listbox(sidebar, font=("Arial", 14), bg=primary_color, fg=secondary_color)
+    listbox.pack(fill="both", expand=True, padx=10, pady=10)
+
+    for pokemon in load_all_pokemon_data():
+        listbox.insert(tk.END, pokemon['name'].capitalize())
+
+    # Function to load Pokémon from the sidebar
+    def on_pokemon_select(event):
+        selected_pokemon = listbox.get(listbox.curselection())
+        load_pokemon(selected_pokemon, frame, pokemon_info_label, image_label)
+
+    listbox.bind("<<ListboxSelect>>", on_pokemon_select)
+
     # Welcome Frame where is displayed the welcome message along with the search bar and buttons
     welcome_frame = tk.Frame(window, width=400, height=220, bg=tertiary_color)
     welcome_frame.pack(pady=30)
@@ -107,6 +130,14 @@ def create_window():
 
     window.mainloop()
 
+@cache
+def load_all_pokemon_data() -> list[dict[str, Any]]:
+    """
+    Loads all Pokémon data from the JSON file.
+    """
+    with open('data/pokemon_data.json', 'r') as file:
+        return json.load(file)
+
 def load_pokemon_data(name_or_id: str):
     """
     Loads the Pokémon data from the JSON file based on the name or ID.
@@ -122,8 +153,7 @@ def load_pokemon_data(name_or_id: str):
     """
     try:
         # Load Pokémon data from JSON file
-        with open('data/pokemon_data.json', 'r') as file:
-            pokemon_data = json.load(file)
+        pokemon_data = load_all_pokemon_data()
 
         # Find the Pokémon by name or ID
         for poke in pokemon_data:
