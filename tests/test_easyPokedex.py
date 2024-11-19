@@ -6,7 +6,7 @@ See LICENSE for more information.
 
 import pytest
 from unittest.mock import mock_open, patch
-from easy_pokedex import get_type_color, load_pokemon_data, return_random_pokemon_id
+from easy_pokedex.main_program import get_type_color, load_pokemon_data, return_random_pokemon_id
 
 def test_get_type_color_valid_type():
     assert get_type_color("fire") == "#FBC6A4"

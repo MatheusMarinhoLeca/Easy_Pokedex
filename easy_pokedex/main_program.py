@@ -218,5 +218,3 @@ def main():
         None
     """
     create_window()
-
-main()
