@@ -1,28 +1,34 @@
-[project]
-name = "easy_pokedex"
-version = "0.0.1-dev"
-authors = [
-  { name = "MatheusMarinhoLeca", email = "matheus.demoraisleca@ucalgary.ca" },
-]
-description = "Easy Pokédex is a convenient tool that allows you to access detailed information about Pokémon without having to capture them."
-readme = "README.md"
-license = { file = "LICENSE" }
-requires-python = ">=3.10"
-classifiers = [
-  "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-]
+  [project]
+  name = "easy_pokedex"
+  version = "0.0.1-dev"
+  authors = [
+    { name = "MatheusMarinhoLeca", email = "matheus.demoraisleca@ucalgary.ca" },
+  ]
+  description = "Easy Pokédex is a convenient tool that allows you to access detailed information about Pokémon without having to capture them."
+  readme = "README.md"
+  license = { file = "LICENSE" }
+  requires-python = ">=3.10"
+  classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+  ]
 
-dependencies = [
-  "pillow",
-]
+  dependencies = [
+    "pillow",
+  ]
 
-[project.optional-dependencies]
-dev = [
-  "pytest",
-]
+  [project.optional-dependencies]
+  dev = [
+    "pytest",
+  ]
 
-[project.urls]
-Homepage = "https://github.com/MatheusMarinhoLeca/Easy_Pokedex"
-Issues = "https://github.com/MatheusMarinhoLeca/Easy_Pokedex/issues"
+  [project.urls]
+  Homepage = "https://github.com/MatheusMarinhoLeca/Easy_Pokedex"
+  Issues = "https://github.com/MatheusMarinhoLeca/Easy_Pokedex/issues"
+
+  [project.scripts]
+  easy-pokedex = "easy_pokedex.__init__:main"
+
+  [tool.setuptools.packages]
+  find = { include = ["easy_pokedex"] }

@@ -113,14 +113,14 @@ To contribute code or run the project locally, you’ll need to set up your deve
 4. **Run the application**:  
    To run the application locally, use:
    ```bash
-   python3 easy_pokedex.py
+   easy-pokedex
    ```
 
 5. **Run the tests**:  
    To run the test suite and ensure everything is functioning:
    ```bash
    cd tests
-   pytest -s test_easyPokedex.py -v
+   pytest -s -v
    ```
 
 6. **Deactivate the virtual environment**:  
