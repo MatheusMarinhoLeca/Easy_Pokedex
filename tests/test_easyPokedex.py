@@ -6,7 +6,7 @@ See LICENSE for more information.
 
 import pytest
 from unittest.mock import mock_open, patch
-from easy_pokedex.main_program import get_type_color, load_pokemon_data, return_random_pokemon_id
+from easy_pokedex.main_program import get_type_color, load_pokemon_data, return_random_pokemon_id, load_all_pokemon_data
 
 def test_get_type_color_valid_type():
     assert get_type_color("fire") == "#FBC6A4"
@@ -16,6 +16,15 @@ def test_get_type_color_valid_type():
 def test_get_type_color_invalid_type():
     assert get_type_color("unknown") == "#FFFFFF"
     assert get_type_color("") == "#FFFFFF"
+
+def test_load_all_pokemon_data():
+    x = load_all_pokemon_data()
+    assert len(x) > 800
+    assert isinstance(x, list)
+    assert isinstance(x[0], dict)
+
+    # Assert that it returns the same data every time.
+    assert load_all_pokemon_data() == x
 
 @patch("easy_pokedex.open", new_callable=mock_open, read_data='[{"id": 1, "name": "bulbasaur", "type": ["grass", "poison"], "image_path": "image.png", "abilities": [["overgrow"]], "height": 0.7, "weight": 6.9, "base_experience": 64, "hp": 45, "attack": 49, "defense": 49, "speed": 45}]')
 def test_load_pokemon_data_valid(mock_open_file):
