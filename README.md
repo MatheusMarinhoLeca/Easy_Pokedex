@@ -46,7 +46,7 @@ Easy Pokédex is a convenient tool that allows you to access detailed informatio
 4. **Run the application**:  
    To run the application locally, use:
    ```bash
-   python easy_pokedex.py
+   easy_pokedex
    ```
 
 ## Feedback
