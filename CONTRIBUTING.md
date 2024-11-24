@@ -86,7 +86,7 @@ If you have design or creative ideas, you can [open an issue](https://github.com
 To contribute code or run the project locally, you’ll need to set up your development environment. This project is written in Python, so ensure you have the required version installed. Follow these steps:
 
 #### Prerequisites
-- Python 3.x
+- Python 3.10
 - Pip (Python package manager)
 - Virtual environment (recommended for isolated Python environments)
 
