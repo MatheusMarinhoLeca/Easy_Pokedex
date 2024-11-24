@@ -19,7 +19,7 @@ Easy Pokédex is a convenient tool that allows you to access detailed informatio
 
 ## Configuration
 #### Prerequisites
-- Python 3.x
+- Python 3.10
 - Pip (Python package manager)
 - Virtual environment (recommended for isolated Python environments)
 
@@ -33,14 +33,14 @@ Easy Pokédex is a convenient tool that allows you to access detailed informatio
 2. **Create a virtual environment**:  
    In the project’s root directory, create and activate a virtual environment:
    ```bash
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate   # On Windows: venv\Scripts\activate
    ```
 
 3. **Install dependencies**:  
    Install the required dependencies using `pip`:
    ```bash
-   pip install -e '.[dev]'
+   pip install .
    ```
 
 4. **Run the application**:  
