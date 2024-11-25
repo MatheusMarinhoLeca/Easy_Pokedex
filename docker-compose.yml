@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  easy-pokedex:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - ${X11_SOCKET:-/tmp/.X11-unix}:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
