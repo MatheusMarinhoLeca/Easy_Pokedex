@@ -19,9 +19,9 @@ def test_get_type_color_invalid_type():
 
 def test_load_all_pokemon_data():
     x = load_all_pokemon_data()
-    assert len(x) > 800
+    assert len(x) == 1025
     assert isinstance(x, list)
-    assert isinstance(x[0], dict)
+    assert all(isinstance(row, dict) for row in x)
 
     # Assert that it returns the same data every time.
     assert load_all_pokemon_data() == x
