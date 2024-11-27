@@ -1,3 +1,7 @@
+# Copyright Matheus Marinho de Morais Leça, 2024
+# Licensed under MIT license.
+# See LICENSE for more information. 
+
 FROM python:3.10-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
