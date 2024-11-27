@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Python: module easy_pokedex</title>
+<title>Python: module main_program</title>
 </head><body>
 
 <table class="heading">
 <tr class="heading-text decor">
-<td class="title">&nbsp;<br><strong class="title">easy_pokedex</strong></td>
-<td class="extra"><a href=".">index</a><br><a href="file:/Users/matheusmarinho/Desktop/Ucalgary%20Research/UCalgary/Special%20Topics/Easy_Pokedex/easy_pokedex.py">/Users/matheusmarinho/Desktop/Ucalgary Research/UCalgary/Special Topics/Easy_Pokedex/easy_pokedex.py</a></td></tr></table>
+<td class="title">&nbsp;<br><strong class="title">main_program</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/matheusmarinho/Desktop/Ucalgary%20Research/UCalgary/Special%20Topics/Easy_Pokedex/easy_pokedex/main_program.py">/Users/matheusmarinho/Desktop/Ucalgary Research/UCalgary/Special Topics/Easy_Pokedex/easy_pokedex/main_program.py</a></td></tr></table>
     <p><span class="code">Copyright&nbsp;Matheus&nbsp;Marinho&nbsp;de&nbsp;Morais&nbsp;Leça,&nbsp;2024<br>
 Licensed&nbsp;under&nbsp;MIT&nbsp;license.<br>
 See&nbsp;LICENSE&nbsp;for&nbsp;more&nbsp;information.</span></p>
@@ -45,6 +45,13 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;corresponding&nbsp;color&nbsp;code&nbsp;in&nbsp;hexadecimal&nbsp;format&nbsp;for&nbsp;the&nbsp;given&nbsp;Pokémon&nbsp;type.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;type&nbsp;is&nbsp;not&nbsp;found,&nbsp;it&nbsp;returns&nbsp;'#FFFFFF'&nbsp;(white)&nbsp;by&nbsp;default.</span></dd></dl>
+ <dl><dt><a name="-load_all_pokemon_data"><strong>load_all_pokemon_data</strong></a>() -&gt; list[dict[str, typing.Any]]</dt><dd><span class="code">Loads&nbsp;all&nbsp;Pokémon&nbsp;data&nbsp;from&nbsp;the&nbsp;JSON&nbsp;file.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list[dict[str,&nbsp;Any]]:&nbsp;A&nbsp;list&nbsp;of&nbsp;dictionaries&nbsp;containing&nbsp;the&nbsp;Pokémon&nbsp;data.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;data&nbsp;is&nbsp;cached&nbsp;to&nbsp;avoid&nbsp;reading&nbsp;the&nbsp;file&nbsp;multiple&nbsp;times.</span></dd></dl>
  <dl><dt><a name="-load_pokemon"><strong>load_pokemon</strong></a>(name_or_id: str, frame: tkinter.Frame, info_label: tkinter.Label, image_label: tkinter.Label)</dt><dd><span class="code">Function&nbsp;that&nbsp;calls&nbsp;the&nbsp;necessary&nbsp;functions&nbsp;to&nbsp;load&nbsp;and&nbsp;display&nbsp;the&nbsp;Pokémon&nbsp;data.<br>
 &nbsp;<br>
 Args:<br>
