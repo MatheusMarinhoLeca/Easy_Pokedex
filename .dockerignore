@@ -1,0 +1,16 @@
+# Copyright Matheus Marinho de Morais Leça, 2024
+# Licensed under MIT license.
+# See LICENSE for more information. 
+
+# Virtual environment directories
+venv/
+.env/
+.venv/
+
+# Configuration and environment files
+.env
+*.env
+
+# Version control files
+.git/
+.gitignore
