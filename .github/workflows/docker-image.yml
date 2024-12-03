@@ -23,6 +23,6 @@ jobs:
         docker push matheusaquatico/easy-pokedex:latest
     - name: register
       run: |
-        docker login -u MatheusMarinhoLeca -p ${{ secrets.Docker_GH_PAT }} ghcr.io
+        docker login -u MatheusMarinhoLeca -p ${{ secrets.GH_PAT }} ghcr.io
         docker build . --file Dockerfile --tag ghcr.io/MatheusMarinhoLeca/easy-pokedex:latest
         docker push ghcr.io/MatheusMarinhoLeca/easy-pokedex:latest
