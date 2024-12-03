@@ -15,8 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag matheusaquatico/my-image-name:latest
+      run: |
+        docker build . --file Dockerfile --tag matheusaquatico/my-image-name:latest
     - name: publish
-      run: 
+      run: |
         docker login -u matheusaquatico -p ${{ secrets.Docker_HUB_TOKEN }}
         docker push matheusaquatico/my-image-name:latest
